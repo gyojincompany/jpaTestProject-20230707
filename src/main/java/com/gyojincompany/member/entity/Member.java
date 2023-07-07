@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.eclipse.jdt.internal.compiler.ast.FalseLiteral;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,7 +31,7 @@ public class Member {
 	@Id //매핑될 테이블의 기본키로 설정
 	@Column(name = "mnum") //실제 DB테이블의 필드이름을 설정
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JPAMEMBER_SEQ_GENERATOR")
-	private int mnum;//회원 번호(자동으로 1~ 시퀀스로 들어가는 회원번호)
+	private Long mnum;//회원 번호(자동으로 1~ 시퀀스로 들어가는 회원번호)
 	
 	@Column(name = "mid", nullable = false, length = 20)
 	private String mid;
