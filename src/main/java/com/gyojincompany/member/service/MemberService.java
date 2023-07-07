@@ -20,5 +20,12 @@ public class MemberService {
 		
 		return memberlist;
 	}
+	
+	public List<Member> searchName(String mname) {
+		
+		List<Member> members = memberRepository.findByMname(mname);//select * from jpa_member where mname=?
+		
+		return members;
+	}
 
 }

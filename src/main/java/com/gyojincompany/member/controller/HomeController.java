@@ -2,6 +2,8 @@ package com.gyojincompany.member.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,21 @@ public class HomeController {
 		model.addAttribute("memberlist", memberlist);
 		
 		return "member_list";
+	}
+	
+	@RequestMapping(value = "/search")
+	public String search() {
+		return "search_member";
+	}
+	
+	@RequestMapping(value = "/searchOk")
+	public String searchOk(HttpServletRequest request, Model model) {
+		
+		List<Member> members = memberService.searchName(request.getParameter("searchName"));
+		
+		model.addAttribute("memberlist", members);
+		
+		return "searchOk_member";
 	}
 
 }

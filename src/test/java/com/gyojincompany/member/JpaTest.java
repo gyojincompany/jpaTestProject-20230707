@@ -34,5 +34,17 @@ public class JpaTest {
 		}
 	}
 	
+	@Test
+	@DisplayName("회원 이름 검색")
+	public void searchName() {
+		List<Member> memberlist = memberRepository.findByMname("홍길동");
+		for(Member member : memberlist) {
+			System.out.println(member.toString());
+		}
+	}
+	
+	
+	
+	
 
 }
