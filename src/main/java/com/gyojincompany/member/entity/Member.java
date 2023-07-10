@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "jpa_member")//엔티티와 매핑할 DB의 테이블 이름 설정
 @SequenceGenerator(
 		name = "JPAMEMBER_SEQ_GENERATOR",//시퀀스 제너레이터 이름
-		sequenceName = "jpamember_seq",
+		sequenceName = "jpamember_seq",//시퀀스 이름
 		initialValue = 1,
 		allocationSize = 1		
 )
@@ -36,7 +36,7 @@ public class Member {
 	@Column(name = "mid", nullable = false, length = 20)
 	private String mid;
 	
-	@Column(name = "mpw", length = 20)
+	@Column(name = "mpw", length = 20, nullable = false)
 	private String mpw;
 	
 	@Column(name = "mname", length = 30, nullable = false)

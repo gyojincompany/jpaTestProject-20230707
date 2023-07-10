@@ -18,11 +18,11 @@ public class JpaTest {
 	@Autowired
 	MemberRepository memberRepository;
 	
-	@Test
-	@DisplayName("회원 탈퇴(삭제) 테스트")
-	public void deleteMember() {
-		memberRepository.deleteById(2L);//delete from jpa_member where mnum=?->회원번호가 2번인 멤버 삭제
-	}
+//	@Test
+//	@DisplayName("회원 탈퇴(삭제) 테스트")
+//	public void deleteMember() {
+//		memberRepository.deleteById(2L);//delete from jpa_member where mnum=?->회원번호가 2번인 멤버 삭제
+//	}
 	
 	@Test
 	@DisplayName("회원 리스트 불러오기 테스트")
@@ -43,6 +43,20 @@ public class JpaTest {
 		}
 	}
 	
+	@Test
+	@DisplayName("회원 가입 테스트")
+	public void joinMember() {
+		
+		Member member = new Member();
+		//mnum은 생략-시퀀스 값이므로
+		member.setMid("tiger11");
+		member.setMpw("12345");
+		member.setMname("이순신");
+		member.setMage(22);
+		
+		memberRepository.save(member);//insert into jpa_member value();
+		
+	}
 	
 	
 	

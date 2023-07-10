@@ -11,7 +11,11 @@
 	<hr>
 	<form action="searchOk">
 		<input type="text" name="searchName">
-		<input type="submit" value="이름검색" >
+		<input type="submit" value="이름검색1" >		
+	</form>
+	<form action="searchOkNew">
+		<input type="text" name="mname">
+		<input type="submit" value="이름검색2" >		
 	</form>
 </body>
 </html>

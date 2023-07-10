@@ -27,5 +27,28 @@ public class MemberService {
 		
 		return members;
 	}
+	
+	public void joinMember(String mid, String mpw, String mname, String mage) {
+		
+		Member member = new Member();
+		
+		member.setMid(mid);
+		member.setMpw(mpw);
+		member.setMname(mname);
+		member.setMage(Integer.parseInt(mage));
+		
+		memberRepository.save(member);//insert문
+	}
+	
+	public List<Member> memberListNew() {
+		
+		return memberRepository.findAllByOrderByMnumDesc();
+	}
+	
+	public List<Member> searchNew(String mname) {
+		
+		return memberRepository.findByMnameOrderByMnumDesc(mname);
+		
+	}
 
 }
